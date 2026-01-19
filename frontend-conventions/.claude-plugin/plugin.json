@@ -1,9 +1,29 @@
 {
   "name": "frontend-conventions",
   "version": "1.0.0",
-  "description": "React/TypeScript/CSS frontend development conventions for code style and structure",
+  "description": "React/TypeScript/CSS frontend development conventions for code style and structure. Includes skills for TypeScript naming, React component patterns, CSS modules, testing, state management, and Storybook.",
   "author": {
-    "name": "AI Model Inc"
+    "name": "sonsu"
   },
-  "keywords": ["react", "typescript", "css", "conventions", "styleguide", "frontend"]
+  "repository": "https://github.com/anthropics/claude-plugins",
+  "homepage": "https://github.com/anthropics/claude-plugins/tree/main/frontend-conventions",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "typescript",
+    "css",
+    "conventions",
+    "styleguide",
+    "frontend",
+    "code-review",
+    "component",
+    "testing",
+    "storybook",
+    "state-management"
+  ],
+  "categories": [
+    "frontend",
+    "code-quality",
+    "productivity"
+  ]
 }
