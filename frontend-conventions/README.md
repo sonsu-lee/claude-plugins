@@ -46,4 +46,18 @@ This plugin complements `vercel-react-best-practices` (performance optimization)
 
 ## Installation
 
-Add this plugin to your Claude Code configuration or include it in your project's `.claude/plugins` directory.
+### From GitHub
+
+```bash
+claude /install-plugin https://github.com/sonsu/claude-plugins/tree/main/frontend-conventions
+```
+
+### Local Development
+
+```bash
+claude --plugin-dir /path/to/frontend-conventions
+```
+
+## License
+
+MIT
