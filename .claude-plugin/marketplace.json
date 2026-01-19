@@ -1,0 +1,25 @@
+{
+  "name": "sonsu-claude-plugins",
+  "owner": {
+    "name": "sonsu",
+    "email": "leesonsu07@gmail.com"
+  },
+  "metadata": {
+    "description": "A collection of Claude Code plugins by sonsu",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "frontend-conventions",
+      "source": "./frontend-conventions",
+      "description": "React/TypeScript/CSS frontend development conventions for code style and structure",
+      "version": "1.0.0",
+      "author": {
+        "name": "sonsu"
+      },
+      "license": "MIT",
+      "keywords": ["react", "typescript", "css", "conventions", "frontend"],
+      "repository": "https://github.com/sonsu-lee/claude-plugins/tree/main/frontend-conventions"
+    }
+  ]
+}
