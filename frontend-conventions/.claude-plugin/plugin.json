@@ -20,10 +20,4 @@
     "testing",
     "storybook",
     "state-management"
-  ],
-  "categories": [
-    "frontend",
-    "code-quality",
-    "productivity"
-  ]
-}
+  ]}
