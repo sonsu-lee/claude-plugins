@@ -1,0 +1,9 @@
+{
+  "name": "frontend-conventions",
+  "version": "1.0.0",
+  "description": "React/TypeScript/CSS frontend development conventions for code style and structure",
+  "author": {
+    "name": "AI Model Inc"
+  },
+  "keywords": ["react", "typescript", "css", "conventions", "styleguide", "frontend"]
+}
