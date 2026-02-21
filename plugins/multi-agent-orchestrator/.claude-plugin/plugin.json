@@ -1,0 +1,8 @@
+{
+  "name": "multi-agent-orchestrator",
+  "description": "Focused orchestration runbook plugin for Agent Teams and subagents.",
+  "version": "0.1.0",
+  "author": {
+    "name": "sonsu"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "sop-policy-enforcer",
+  "description": "SOP enforcement plugin for task lifecycle checkpoints and evidence-based completion.",
+  "version": "0.1.0",
+  "author": {
+    "name": "sonsu"
+  }
+}
