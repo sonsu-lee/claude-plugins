@@ -1,6 +1,6 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-  "name": "claude-plugins",
+  "name": "sonsu-plugins",
   "description": "Personal Claude Code plugin marketplace — frontend and governance.",
   "owner": {
     "name": "sonsu"
