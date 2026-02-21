@@ -1,0 +1,21 @@
+{
+  "name": "frontend",
+  "description": "Three specialized skills that make Claude Code an expert frontend partner — diagnose CSS issues with live browser inspection, enforce design system token compliance with Figma alignment, and guide component architecture decisions with UX pattern checklists.",
+  "version": "0.2.0",
+  "author": {
+    "name": "sonsu"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "css",
+    "design-system",
+    "design-tokens",
+    "figma",
+    "components",
+    "ui-kit",
+    "accessibility",
+    "layout",
+    "theming",
+    "dark-mode"
+  ]
+}

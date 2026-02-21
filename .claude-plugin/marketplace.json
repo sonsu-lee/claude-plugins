@@ -1,59 +1,29 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "claude-plugins",
-  "description": "Personal Claude Code plugin marketplace — frontend craft, governance, and orchestration.",
+  "description": "Personal Claude Code plugin marketplace — frontend and governance.",
   "owner": {
     "name": "sonsu"
   },
   "plugins": [
     {
-      "name": "frontend-craft",
+      "name": "frontend",
       "description": "Three specialized skills that make Claude Code an expert frontend partner — diagnose CSS issues with live browser inspection, enforce design system token compliance with Figma alignment, and guide component architecture decisions with UX pattern checklists.",
       "version": "0.2.0",
       "author": {
         "name": "sonsu"
       },
-      "source": "./plugins/frontend-craft",
+      "source": "./plugins/frontend",
       "category": "development"
     },
     {
-      "name": "multi-agent-orchestrator",
-      "description": "Focused orchestration runbook plugin for Agent Teams and subagents.",
+      "name": "governance",
+      "description": "Unified governance plugin — orchestration runbooks, security risk gates, and SOP policy enforcement in a single workflow.",
       "version": "0.1.0",
       "author": {
         "name": "sonsu"
       },
-      "source": "./plugins/multi-agent-orchestrator",
-      "category": "development"
-    },
-    {
-      "name": "security-preflight-gate",
-      "description": "Classifies task risk and applies preflight security checks before execution.",
-      "version": "0.1.0",
-      "author": {
-        "name": "sonsu"
-      },
-      "source": "./plugins/security-preflight-gate",
-      "category": "security"
-    },
-    {
-      "name": "sop-policy-enforcer",
-      "description": "SOP policy enforcement for start, progress, and completion checkpoints.",
-      "version": "0.1.0",
-      "author": {
-        "name": "sonsu"
-      },
-      "source": "./plugins/sop-policy-enforcer",
-      "category": "productivity"
-    },
-    {
-      "name": "governance-commands",
-      "description": "Composite governance commands: preflight checks and ops-check completion verification.",
-      "version": "0.1.0",
-      "author": {
-        "name": "sonsu"
-      },
-      "source": "./plugins/governance-commands",
+      "source": "./plugins/governance",
       "category": "productivity"
     }
   ]

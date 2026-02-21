@@ -1,8 +1,0 @@
-{
-  "name": "security-preflight-gate",
-  "description": "Task risk gate that recommends safe permission and sandbox posture before execution.",
-  "version": "0.1.0",
-  "author": {
-    "name": "sonsu"
-  }
-}

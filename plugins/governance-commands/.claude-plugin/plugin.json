@@ -1,8 +1,0 @@
-{
-  "name": "governance-commands",
-  "description": "Composite governance commands: preflight checks and ops-check completion verification.",
-  "version": "0.1.0",
-  "author": {
-    "name": "sonsu"
-  }
-}

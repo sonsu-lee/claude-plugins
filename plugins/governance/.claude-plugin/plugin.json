@@ -1,0 +1,19 @@
+{
+  "name": "governance",
+  "description": "Unified governance plugin — orchestration runbooks, security risk gates, and SOP policy enforcement in a single workflow.",
+  "version": "0.1.0",
+  "author": {
+    "name": "sonsu"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "governance",
+    "orchestration",
+    "security",
+    "risk",
+    "sop",
+    "policy",
+    "preflight",
+    "multi-agent"
+  ]
+}
