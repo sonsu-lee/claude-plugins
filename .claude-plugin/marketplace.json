@@ -1,7 +1,7 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "sonsu-plugins",
-  "description": "Personal Claude Code plugin marketplace — frontend and governance.",
+  "description": "Personal Claude Code plugin marketplace — frontend, governance, and language polishing.",
   "owner": {
     "name": "sonsu"
   },
@@ -24,6 +24,16 @@
         "name": "sonsu"
       },
       "source": "./plugins/governance",
+      "category": "productivity"
+    },
+    {
+      "name": "lang-polish",
+      "description": "Language polishing for professional EN and JA communication — GitHub, Slack, email, and workplace documents.",
+      "version": "0.1.0",
+      "author": {
+        "name": "sonsu"
+      },
+      "source": "./plugins/lang-polish",
       "category": "productivity"
     }
   ]
