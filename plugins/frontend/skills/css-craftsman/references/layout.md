@@ -19,6 +19,43 @@ When in doubt, start with flex. Promote to grid when you need column alignment a
 .dashboard { display: grid; grid-template-columns: 250px 1fr; grid-template-rows: auto 1fr auto; }
 ```
 
+## Macro-to-Micro Layout Strategy
+
+For application-scale UI, decide layout at three levels:
+
+1. **Macro (page shell)** -> **Grid first**
+2. **Meso (section groups)** -> Flex for 1D flows, Grid for 2D alignment
+3. **Micro (component internals)** -> Flex first, Grid only when true 2D placement is required
+
+```css
+/* Macro: app shell */
+.app {
+  display: grid;
+  grid-template-columns: 16rem minmax(0, 1fr);
+  grid-template-rows: auto minmax(0, 1fr);
+  min-block-size: 100dvh;
+}
+
+/* Meso: toolbar / list controls */
+.toolbar {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+/* Micro: media object */
+.item {
+  display: flex;
+  gap: 0.5rem;
+}
+```
+
+Rules:
+- Use Grid for shell-level regions (header/nav/main/aside/footer).
+- Use Flex for single-direction content choreography inside each region.
+- Promote to nested Grid when internal children need row+column alignment across multiple lines.
+- Keep DOM hierarchy aligned with layout boundaries: shell container -> region container -> component container.
+
 ## Sizing Priority
 
 Always prefer sizes higher on this list. Move down only when the higher option cannot work.

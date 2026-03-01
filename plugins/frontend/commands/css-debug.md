@@ -1,7 +1,7 @@
 ---
 description: Inspect a specific element's DOM structure and computed CSS for debugging
 argument-hint: <url> <selector>
-allowed-tools: [Read, Glob, Grep, mcp__plugin_playwright_playwright__browser_navigate, mcp__plugin_playwright_playwright__browser_evaluate, mcp__plugin_playwright_playwright__browser_snapshot, mcp__plugin_playwright_playwright__browser_take_screenshot]
+allowed-tools: [Read, Glob, Grep, mcp__plugin_playwright_playwright__browser_navigate, mcp__plugin_playwright_playwright__browser_evaluate, mcp__plugin_playwright_playwright__browser_snapshot]
 ---
 
 # CSS Debug
@@ -24,9 +24,9 @@ If no arguments are provided, ask the user for both URL and selector.
 Spawn the `css-inspector` agent with the provided URL and selector. The agent will:
 
 1. Navigate to the URL
-2. Extract DOM structure, computed styles, box model, parent chain, layout context
-3. Auto-detect common issues (overflow clipping, zero-size, off-viewport, hidden elements)
-4. Take a screenshot
+2. Capture accessibility-tree context from `browser_snapshot`
+3. Extract DOM structure, computed styles, box model, parent chain, and layout context
+4. Auto-detect common issues (overflow clipping, truncation mismatch, flex min-width risks, zero-size, off-viewport, hidden elements)
 5. Return a structured diagnostic report
 
 Present the agent's diagnostic report to the user as-is. Do NOT attempt to fix anything — this command is for inspection only. If the user wants fixes, they should describe the problem and let the css-craftsman skill handle the full workflow.

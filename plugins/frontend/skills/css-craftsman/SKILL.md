@@ -42,14 +42,20 @@ Spawn the `css-inspector` agent to get the actual browser DOM state. Provide it 
 Rules for this step:
 
 - If the dev server is not running, ask the user to start it. Do not proceed without a running page.
-- If the selector is unknown, infer it from the component source code read in Step 2, or ask the user.
+- If the selector is unknown, infer it from component source code read in Step 2, or ask the user.
 - Wait for the full diagnostic report before moving to Step 4.
 
-The css-inspector agent will return computed styles, box model data, the parent chain, layout context, auto-detected issues, and a screenshot. This data is what you base your diagnosis on.
+The css-inspector agent returns:
+- Accessibility tree context (text snapshot)
+- Computed styles and box model
+- Parent chain and layout context
+- Auto-detected structural issues
+
+This data is the basis of your diagnosis.
 
 ### Step 4: Diagnose
 
-Compare the source code intent (Step 2) against the actual DOM report (Step 3). Identify the root cause.
+Compare source-code intent (Step 2) against actual DOM report (Step 3). Identify the root cause.
 
 Common root-cause patterns:
 
@@ -60,20 +66,25 @@ Common root-cause patterns:
 - **CSS Module scoping**: Class not applied due to incorrect import, wrong file, or `:global()` conflict.
 - **Wrong DOM nesting**: A library component wraps content in unexpected elements, breaking flex/grid parent-child relationship.
 - **Stacking context**: `z-index` not working because the element is in a different stacking context.
+- **Truncation setup mismatch**: `text-overflow` or `line-clamp` is set but required overflow/width constraints are missing.
+- **Macro/micro layout mismatch**: app shell and component internals are using the wrong layout model (e.g., shell built with deep nested flex, or one-dimensional component forced into grid).
 - **Zero-size element**: No width or height because no content, no explicit size, and parent does not stretch it.
 
 State the root cause clearly before proposing a fix.
 
 ### Step 5: Fix and Verify
 
-Apply the fix following the CSS Guidelines below. Then verify:
+Apply the fix following the CSS Guidelines below. Then verify with text-based checks:
 
-1. Take a Playwright screenshot after the fix to confirm the visual result.
-2. If the fix does not resolve the issue, return to Step 4 with the new diagnostic data.
+1. Re-run `css-inspector` and compare key computed values (`display`, min/max sizes, overflow, truncation fields, parent layout context).
+2. Confirm that the issue list no longer includes the root-cause issue.
+3. Confirm accessibility tree structure/order still matches intended semantics for interactive elements.
+4. Validate any modern CSS additions with the release-window policy (`references/release-window.md`) and add fallback for Tier B features.
+5. If unresolved, return to Step 4 with fresh diagnostic data.
 
 ---
 
-**KEY RULE: Never attempt CSS fixes without first completing Step 3 (DOM inspection).** Guessing at CSS fixes without seeing actual computed styles is the single most common cause of wasted effort.
+**KEY RULE: Never attempt CSS fixes without first completing Step 3 (DOM inspection).** Guessing at CSS fixes without computed values and accessibility-tree context is the most common cause of wasted effort.
 
 ---
 
@@ -89,6 +100,18 @@ Apply these rules whenever you write or modify CSS. Each rule is summarized belo
 - `gap` on parent, not margin between siblings.
 - Responsive: mobile-first, container queries for components, `clamp()` for fluid values.
 - Full-bleed/centering one-liners. Intrinsic sizing with `min()`/`max()`/`clamp()`. Sticky positioning flex/grid fix.
+
+### UI Pattern Recipes — `references/ui-patterns.md`
+
+- Start from standard patterns for app shell, dashboard cards, media rows, forms, tables, dialogs.
+- Prefer small CSS deltas from known patterns instead of custom one-off layout structures.
+- When a pattern is identified, apply its recommended width/truncation rules first.
+
+### Framework Benchmarks — `references/framework-patterns.md`
+
+- Cross-check key layout choices against mature framework patterns (Chakra, Mantine, MUI, Radix, React Aria, Ark UI, Base UI).
+- Keep shell/region/component boundaries explicit in both CSS and DOM.
+- Prefer attribute-driven state styling patterns where component libraries expose state attributes.
 
 ### DOM Structure — `references/dom-structure.md`
 
@@ -109,7 +132,20 @@ Apply these rules whenever you write or modify CSS. Each rule is summarized belo
 - Responsive type with `clamp()`. Never viewport units alone.
 - Line height: unitless, 1.5 for body, 1.1-1.3 for headings.
 - Max line length: `max-width: 65ch` for prose.
+- Truncation must include required constraints (`overflow`, `white-space`/`line-clamp`, width/min-width conditions).
 - `text-box: trim-both cap alphabetic` for optical centering. `text-wrap: balance`/`pretty`. Logical properties.
+
+### Modern CSS Specs — `references/modern-css.md`
+
+- Prefer modern CSS APIs when they simplify structure and are safe with progressive enhancement.
+- Use `@supports`/fallback branches for non-universal features.
+- Prioritize: `@layer`, `@container`, `subgrid`, `:has()`, `line-clamp`, `text-wrap`, `light-dark()`, `color-mix()`, `@scope`.
+
+### Release-Tracked Compatibility — `references/release-window.md`
+
+- Support target is rolling last 12 months.
+- Check Chromium, Firefox, and Safari release notes before adopting very new CSS APIs.
+- Tier B features must include fallback behavior in code examples and patches.
 
 ### z-index — `references/z-index.md`
 

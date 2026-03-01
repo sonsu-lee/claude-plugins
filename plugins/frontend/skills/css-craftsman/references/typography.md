@@ -110,17 +110,19 @@ Verify that loaded web fonts include the weights you reference. Missing weights 
 
 ```css
 .line-clamp-3 {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
   overflow: hidden;
+  line-clamp: 3;
+  -webkit-line-clamp: 3; /* fallback for engines still using prefixed behavior */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
   max-width: 100%;
 }
 ```
 
 Rules:
-- Always set `max-width` on truncated elements. Truncation without a width constraint does nothing.
+- Always set `max-width` or an equivalent width constraint on truncated elements. Truncation without width constraints does nothing.
 - In flex containers, add `min-width: 0` on the flex child for truncation to work.
+- For modern engines, prefer standard `line-clamp` and keep prefixed declarations for compatibility.
 
 ## Line Length
 

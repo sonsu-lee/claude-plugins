@@ -1,6 +1,6 @@
 # Frontend
 
-Three specialized skills that make Claude Code an expert frontend partner — diagnose CSS issues with live browser inspection, enforce design system token compliance with Figma alignment, and guide component architecture decisions with UX pattern checklists.
+Three specialized skills that make Claude Code an expert frontend partner — diagnose CSS issues with text-first DOM and accessibility-tree inspection, enforce design system token compliance with Figma alignment, and guide component architecture decisions with UX pattern checklists.
 
 **For:** Frontend developers building component-based UIs with design systems, CSS Modules, and Figma-to-code workflows.
 
@@ -10,7 +10,7 @@ Three specialized skills that make Claude Code an expert frontend partner — di
 > "Fix the sidebar overlap" → Claude guesses at CSS changes, applies trial-and-error fixes
 
 ### With this plugin
-> "Fix the sidebar overlap" → Claude inspects the live DOM via Playwright, reads computed styles, identifies the root cause (`min-width: auto` on a flex child), and applies the correct fix following CSS best practices
+> "Fix the sidebar overlap" → Claude captures a Playwright accessibility snapshot, reads computed styles and parent layout context, identifies the root cause (`min-width: auto` on a flex child), and applies a minimal fix with modern CSS patterns
 
 ---
 
@@ -20,9 +20,9 @@ Three specialized skills that make Claude Code an expert frontend partner — di
 
 Triggers when you describe CSS problems or work on CSS/style files.
 
-Forces a "look first, fix second" workflow: inspects the actual DOM via Playwright before attempting fixes. Includes 10 guideline areas (layout, `@layer`, accessibility, performance, design tokens, etc.).
+Forces a "look first, fix second" workflow: inspect accessibility tree + computed styles before fixing. Includes 14 guideline areas (layout, pattern recipes, framework benchmarks, release-tracked compatibility, truncation, modern CSS specs, accessibility, performance, etc.).
 
-**Agent:** `css-inspector` — Extracts computed styles, box model, parent chain, and auto-detects issues.
+**Agent:** `css-inspector` — Extracts accessibility-tree context, computed styles, box model, parent chain, and auto-detects structural issues.
 **Command:** `/frontend:css-debug <url> <selector>` — Manual element inspection.
 
 ```
@@ -57,7 +57,7 @@ Guides extension vs separation decisions, prop API design, UX pattern compliance
 
 ## Prerequisites
 
-- [Playwright plugin](https://github.com/anthropics/claude-plugins-official) required for CSS debugging (live DOM inspection)
+- [Playwright plugin](https://github.com/anthropics/claude-plugins-official) required for CSS debugging (text-based DOM/accessibility inspection)
 - [Figma plugin](https://github.com/anthropics/claude-plugins-official) recommended for design system Figma cross-referencing (not required)
 
 ## Installation
@@ -90,24 +90,28 @@ Use this table when a request can match more than one skill.
 
 | Component | Type | Source Skill |
 |-----------|------|-------------|
-| `css-craftsman` | Skill | CSS debugging workflow + 10 CSS guidelines |
+| `css-craftsman` | Skill | CSS debugging workflow + 14 CSS guidelines |
 | `design-system` | Skill | Token management workflow + 6 DS guidelines |
 | `component-craft` | Skill | Component design workflow + 5 design guidelines |
-| `css-inspector` | Agent | Live DOM/CSS inspection via Playwright |
+| `css-inspector` | Agent | Text-first DOM/accessibility inspection via Playwright |
 | `design-system-auditor` | Agent | Design system compliance audit |
 | `/frontend:css-debug` | Command | Manual CSS element inspection |
 | `/frontend:design-system-audit` | Command | Manual DS compliance audit |
 
 ## Guidelines Reference
 
-### CSS Craftsman (10 areas)
+### CSS Craftsman (14 areas)
 
 | Guideline | Key rules |
 |-----------|-----------|
-| Layout | Grid for 2D, Flex for 1D. `gap` on parent. Full-bleed/centering patterns. Sticky flex/grid fix. |
+| Layout | Grid for 2D, Flex for 1D. `gap` on parent. Full-bleed/centering patterns. Sticky flex/grid fix. Macro shell prefers Grid, internals prefer Flex-first. |
+| UI Pattern Recipes | App shell, dashboard grid, media row, form grid, table shell, dialog layout recipes. |
+| Framework Benchmarks | Chakra/Mantine/MUI/Radix/React Aria/Ark UI/Base UI patterns are used as architecture checks. |
 | DOM Structure | Wrapper divs OK for layout. Direct children for flex/grid. |
 | Design Tokens | Primitive > semantic > component. No hardcoded values. |
-| Typography | `rem` only. `clamp()` for responsive. `text-box` trimming. `text-wrap: balance/pretty`. Logical properties. |
+| Typography | `rem` only. `clamp()` for responsive. `text-box` trimming. `text-wrap: balance/pretty`. Truncation with width constraints. |
+| Modern CSS (Progressive) | `@layer`, `@container`, subgrid, `:has()`, `line-clamp`, `text-wrap`, `light-dark()`, `color-mix()`, `@scope` with fallbacks. |
+| Release-Tracked Compatibility | Rolling last-12-month support window with Chromium/Firefox/Safari release-note checks. |
 | z-index | 6-tier scale. `isolation: isolate`. No raw numbers. Flex/grid items work without `position`. |
 | Accessibility | DOM order = tab order. 44px team target baseline (24px AA floor with exceptions). 4.5:1 contrast. |
 | Performance | `transform`/`opacity` only for animation. `contain` decision table. Respect reduced motion. |
