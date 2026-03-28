@@ -1,0 +1,17 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "sungsulee-plugins",
+  "description": "Personal Claude Code plugin marketplace",
+  "owner": {
+    "name": "sungsulee"
+  },
+  "plugins": [
+    {
+      "name": "research",
+      "description": "Systematic technical research with citation verification, CRAAP source evaluation, and harness-based quality assurance",
+      "version": "0.1.0",
+      "source": "./research",
+      "category": "productivity"
+    }
+  ]
+}
