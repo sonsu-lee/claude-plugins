@@ -1,0 +1,16 @@
+{
+  "name": "research",
+  "description": "Systematic technical research plugin with citation verification, PRISMA flow tracking, CRAAP source evaluation, and harness-based quality assurance. Supports compare, validate, and explore modes.",
+  "version": "0.1.0",
+  "author": {
+    "name": "sungsulee"
+  },
+  "keywords": [
+    "research",
+    "citation",
+    "documentation",
+    "comparison",
+    "evaluation",
+    "harness"
+  ]
+}
