@@ -10,7 +10,7 @@ description: >
   assistant: "I'll use the source-evaluator to score each source's reliability."
   <commentary>Quality evaluation happens after collection, before synthesis.</commentary>
   </example>
-tools: Read, WebFetch, WebSearch
+tools: Read, WebFetch, WebSearch, mcp__plugin_research_exa__web_search_exa, mcp__plugin_research_exa__crawling_exa
 model: inherit
 color: green
 ---
@@ -37,7 +37,7 @@ For Accuracy scoring, apply the SIFT method:
 - **Find better coverage**: What do OTHER sources say about the same claims?
 - **Trace claims**: Find the original source of key claims
 
-Use WebSearch or WebFetch to cross-verify key claims when needed.
+Use WebSearch, WebFetch, or Exa MCP tools to cross-verify key claims. When WebFetch returns 403, use `crawling_exa` to access the page content directly.
 
 ## Overall Rating
 
@@ -83,3 +83,5 @@ Use WebSearch or WebFetch to cross-verify key claims when needed.
 - For Accuracy scoring, always attempt at least one cross-verification
 - Note any caveats for MEDIUM-rated sources (these will be included but with warnings)
 - If a source has HIGH authority but LOW currency, note the version mismatch clearly
+- Verify that every source has a valid, accessible URL — flag sources with missing or broken URLs
+- When evaluating Accuracy via cross-verification, record the cross-reference source URL

@@ -82,7 +82,13 @@ Follow the structure in `${CLAUDE_PLUGIN_ROOT}/skills/research-workflow/referenc
 3. Consensus points with citations
 4. Divergence points with meta-narratives
 5. Evidence gap map
-6. Complete footnotes with direct quotes
+6. Complete footnotes with direct quotes AND source URLs
+
+Every footnote MUST follow this format:
+```
+[^N]: [Document Title](URL) — "direct quote from source"
+```
+The URL is essential — it allows readers to verify claims against the original source. Never omit the URL.
 
 ## Guidelines
 - Read ALL collected source data thoroughly before beginning synthesis
@@ -90,3 +96,5 @@ Follow the structure in `${CLAUDE_PLUGIN_ROOT}/skills/research-workflow/referenc
 - Prefer direct quotes over paraphrasing
 - When synthesizing across sources, always maintain individual source attribution
 - If sources provide conflicting data, present BOTH sides — do not average or merge
+- Be mindful of context: if working with many sources, focus on the highest-quality extractions rather than trying to include everything. Quality over quantity in synthesis prevents context overflow.
+- When referencing specific claims, always include the source URL inline or as a footnote — this is the single most important quality signal for the final document

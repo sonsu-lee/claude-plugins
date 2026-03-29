@@ -77,6 +77,8 @@ Output: Quality scores per source + excluded sources with reasons
 
 ## Step 4: Coverage Correction (CRAG)
 
+This step is performed by the orchestrator inline, not a dedicated agent.
+
 Evaluate collection sufficiency against the protocol:
 
 - Check: Does every sub-question have at least 2 HIGH-quality sources?

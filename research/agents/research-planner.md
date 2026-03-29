@@ -65,6 +65,18 @@ Define what to extract from each source:
 - Minimum total sources: 5
 - Required source types: at least 1 official documentation source per technology
 
+### 7. Preliminary Source Map
+Before finalizing the protocol, do a quick web search to identify likely sources:
+- List 5-10 candidate sources with URLs
+- Map each to the sub-questions it likely covers
+- This helps the doc-researcher start efficiently
+
+### 8. Context Budget Guidance
+Estimate the expected volume of source material:
+- If the topic is broad (e.g., comparing 3+ technologies), recommend limiting to top 3 sources per sub-question to avoid context overflow
+- If narrow, allow deeper extraction from fewer sources
+- Note: agent performance degrades when context utilization exceeds ~40%
+
 ## Output Format
 
 ```markdown
@@ -99,9 +111,19 @@ Define what to extract from each source:
 - Per sub-question: 2 HIGH sources
 - Total minimum: [N] sources
 - Required: [specific source types]
+
+## Preliminary Source Map
+| Source | URL | Type | Sub-questions |
+|--------|-----|------|---------------|
+| [Name] | [URL] | official/blog/academic | 1, 3, 5 |
+
+## Context Budget
+- Expected volume: [light/moderate/heavy]
+- Max sources per sub-question: [N]
 ```
 
 ## Guidelines
 - Do a quick preliminary web search to understand the landscape before defining the protocol
 - Be specific rather than generic — tailor criteria to the actual topic
 - Think about what would make this research COMPLETE and TRUSTWORTHY
+- The preliminary source map reduces redundant searching in the collection step
