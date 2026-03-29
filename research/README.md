@@ -6,9 +6,10 @@ Systematic technical research plugin for Claude Code with citation verification,
 
 - **7-step research workflow**: Protocol → Collection → Evaluation → Correction → Synthesis → Verification → Documentation
 - **3 research modes**: Compare (A vs B), Validate (best practices check), Explore (deep dive)
-- **Citation verification**: Every claim tracked with direct quotes and source URLs
+- **Citation verification**: Every claim tracked with direct quotes and source URLs (MISSING_URL flagged as critical)
 - **CRAAP+ source evaluation**: Automated quality scoring with lateral verification
 - **Harness pattern**: Independent evaluator verifies synthesis quality with retry loops
+- **403 fallback strategy**: WebFetch -> Exa crawling -> Zyte for anti-bot protected sites
 - **PRISMA flow tracking**: Transparent source selection process
 - **GRADE evidence ratings**: Confidence levels on every conclusion
 

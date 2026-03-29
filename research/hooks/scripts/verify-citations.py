@@ -59,6 +59,14 @@ def verify_citations(text: str) -> dict:
             "Research requires original text citations."
         )
 
+    # Check for MISSING_URL flags from the research-evaluator
+    missing_url_count = len(re.findall(r'MISSING_URL', text))
+    if missing_url_count > 0:
+        issues.append(
+            f"{missing_url_count} MISSING_URL flag(s) detected. "
+            "Every footnote must include a source URL for verification."
+        )
+
     # Check for VERIFIED/INFERRED tags (in source collection output)
     verified_count = len(re.findall(r'\[VERIFIED\]', text))
     inferred_count = len(re.findall(r'\[INFERRED\]', text))
@@ -82,6 +90,7 @@ def verify_citations(text: str) -> dict:
         "footnote_defs": len(footnote_defs),
         "urls_found": len(urls_in_footnotes),
         "quotes_found": len(quotes_in_footnotes),
+        "missing_url_flags": missing_url_count,
         "verified_claims": verified_count,
         "inferred_claims": inferred_count,
         "grade_tags": len(grade_tags),

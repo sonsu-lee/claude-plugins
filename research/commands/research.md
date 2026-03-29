@@ -2,7 +2,7 @@
 name: research
 description: Conduct systematic technical research with citation verification and quality assurance
 argument-hint: "<research question or topic>"
-allowed-tools: [Read, Write, Edit, Glob, Grep, Bash, WebFetch, WebSearch, Agent]
+allowed-tools: [Read, Write, Edit, Glob, Grep, Bash, WebFetch, WebSearch, Agent, mcp__plugin_research_exa__web_search_exa, mcp__plugin_research_exa__crawling_exa, mcp__plugin_research_exa__get_code_context_exa]
 ---
 
 # /research Command

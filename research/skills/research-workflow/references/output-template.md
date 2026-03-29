@@ -117,6 +117,7 @@ Areas where sufficient evidence was NOT found:
 
 ## References
 
+<!-- Every footnote MUST include a URL. A footnote without a URL will be flagged as MISSING_URL by the evaluator. -->
 [^1]: [Document Title](URL) — "[direct quote from source]"
 [^2]: [Document Title](URL) — "[direct quote from source]"
 [^3]: [Document Title](URL) — "[direct quote from source]"
